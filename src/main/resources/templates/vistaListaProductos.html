@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>PRUEBA</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta http-equiv="x-ua-competible">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link th:href="@{/css/misEstilos.css}" rel="stylesheet">
+
+</head>
+
+<body>
+	<div>
+		<h1>Productos Disponibles</h1>
+
+
+
+		<table class="table table-dark table-striped">
+			<!--Cabezera de tabla-->
+			<thead>
+				<tr>
+					<!--th tmb sirve para columnas-->
+					<th>Nombre</th>
+					<th>Codigo de Barras</th>
+					<th>Stock</th>
+					<th>Categoria</th>
+					<th>Borrar</th>
+				</tr>
+			</thead>
+			<!--Cuerpo de tabla-->
+			<tbody>
+				<tr th:each="producto : ${productosDisponibles}">
+					<td th:text="${producto.nombre}"></td>
+					<td th:text="${producto.codigoBarras}"></td>
+					<td th:text="${producto.stock}"></td>
+					<td th:text="${producto.categoria}"></td>
+					<form
+						action="#" th:action="@{/productos/Eliminar/{idProducto}(idProducto=${producto.id})}"
+						th:object="${producto}" th:method="delete">
+					<td><input type="submit" value="Borrar"></td>
+					</form>
+
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</body>
+
+</htmls>

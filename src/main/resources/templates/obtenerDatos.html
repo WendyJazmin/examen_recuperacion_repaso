@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>PRUEBA</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link th:href="@{/css/misEstilos.css}" rel="stylesheet">
+</head>
+
+<body>
+	<div>
+		<div th:if=${param.exito}>
+			<div class="alert alert-info">Bodega registrada exitosamente</div>
+
+		</div>
+
+		<form action='#' th:action="@{/bodegas/insertarBodega}"
+			th:object="${bodega}" method="post">
+			<table class="table table-striped">
+				<tr>
+					<td><label>Nombre: </label></td>
+					<td><input type="text" id="nombre" th:field="*{nombre}">
+					</td>
+				</tr>
+				<tr>
+					<td><label>Numero </td>
+					<td><input type="text" id="numeroBodega"
+						th:field="*{numeroBodega}"></td>
+				</tr>
+				<tr>
+					<td><label>Direccion: </label></td>
+					<td><input type="text" id="direccion" th:field="*{direccion}">
+					</td>
+				</tr>
+				<tr>
+					<td><label>Telefono: </label></td>
+					<td><input type="text" id="telefono" th:field="*{telefono}">
+					</td>
+				</tr>
+
+
+			</table>
+
+			<input type="submit" value="Registrar">
+		</form>
+	</div>
+</body>
+
+</html>

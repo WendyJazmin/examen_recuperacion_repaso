@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>PRUEBA</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link th:href="@{/css/misEstilos.css}" rel="stylesheet">
+</head>
+
+<body>
+	<div>
+		
+		<form action='#' th:action="@{/productos/insertarProducto}"
+			th:object="${producto}" method="post">
+			<table class="table table-striped">
+				<tr>
+					<td><label>Nombre: </label></td>
+					<td><input type="text" id="nombre" th:field="${producto.nombre}">
+					</td>
+				</tr>
+				<tr>
+					<td><label>Codigo de barras </td>
+					<td><input type="text" id="codigoBarras" th:field="${producto.codigoBarras}"></td>
+				</tr>
+				<tr>
+					<td><label>Categoria: </label></td>
+					<td><input type="text" id="categoria" th:field="${producto.categoria}"></td>
+				</tr>
+
+			</table>
+
+				<input type="submit" value="Guardar">
+
+		</form>
+	</div>
+</body>
+
+</html>
